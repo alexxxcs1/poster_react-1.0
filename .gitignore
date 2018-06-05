@@ -1,0 +1,5 @@
+# node包目录
+node_modules
+
+# 编译目录
+dist

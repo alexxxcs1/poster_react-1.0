@@ -1,0 +1,15 @@
+@import 'mixin';
+
+.RoundBtn
+{
+    $RoundBtnHeight:65px;
+    width: 250px;
+    height: $RoundBtnHeight;
+    background-color: $ThemeBlue;
+    border-radius: 30px;
+    float: left;
+    font-size: 25px;
+    color: #ffffff;
+    text-align: center;
+    line-height: $RoundBtnHeight;
+}

@@ -1,0 +1,86 @@
+/**
+ * 清除ul ol的样式 
+ */
+
+ul,
+ol,
+ul li,
+ol li {
+    list-style: none !important;
+}
+
+
+/* 初始化 */
+
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+
+/**
+ * 设置行高 
+ */
+
+div,
+p,
+a {
+    text-decoration:none; 
+}
+
+
+/* body 样式*/
+
+body {
+    font-family: "Microsoft YaHei", Verdana, Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    background: #fff;
+    &.modal-open {
+        position: fixed;
+        width: 100%;
+    }
+}
+
+$fontColorRed:#FF5028;
+$fontColor66:#666666;
+$backgroundF2:#F2F2F2;
+$pontYell:#FDB933;
+$borderE6:#E6E6E6;

@@ -1,0 +1,15 @@
+@import 'mixin';
+.EditorBox
+{
+    width: 1000px;
+    height: auto;
+    min-height: 150px;
+    // background-color: red;
+    margin: 0 auto;
+    padding-bottom: 60px;
+    .spcKVBox
+    {
+        width: 90%;
+        margin: 0 auto;
+    }
+}

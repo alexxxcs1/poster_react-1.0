@@ -1,0 +1,14 @@
+@import 'mixin';
+.TextLine
+{
+    margin: 0 auto;
+    $TextLineHeight:100px;
+    width: 90%;
+    text-align: center;
+    height: $TextLineHeight;
+    line-height: $TextLineHeight;
+
+    font-size: 25px;
+    font-weight: bold;
+    color: $ThemeBlue;
+}

@@ -1,0 +1,27 @@
+@import 'mixin';
+.AddNewBtn
+{
+    $AddNewBtnHeight:100px;
+    width: 100%;
+    height: $AddNewBtnHeight;
+    line-height: $AddNewBtnHeight;
+
+    margin: 0 auto;
+    // background-color: red;
+    border: 3px $ThemeBlue solid;
+    box-shadow: 0px 0px 0px #333333;
+    transition: box-shadow 0.3s;
+
+    color: $ThemeBlue;
+
+    cursor: pointer;
+
+    &:hover
+    {
+        
+        box-shadow: 0px 0px 15px #333333;
+    }
+
+    font-size: 25px;
+    font-weight: bold;
+}

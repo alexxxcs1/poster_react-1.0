@@ -1,0 +1,69 @@
+@import 'main';
+
+.MyArticle
+{
+    width: 100%;
+    height: 250px;
+    // background-color: red;
+    margin: 20px auto;
+
+    position: relative;
+    border: 3px $ThemeBlue solid;
+
+    box-shadow: 0px 0px 0px #333333;
+    transition: box-shadow 0.3s;
+    .EditBtn
+    {
+        $EditBtnHeight:50px;
+        width: 130px;
+        height: $EditBtnHeight;
+        background-color: $ThemeBlue;
+        position: absolute;
+        right: 40px;
+        top: 20px;
+        border-radius: 10px;
+        font-size: 26px;
+        font-weight: bold;
+        text-align: center;
+        line-height: $EditBtnHeight;
+        z-index: 998;
+        color:#ffffff;
+    }
+    &:hover
+    {
+        box-shadow: 0px 0px 10px #333333;
+    }
+    .statusBox
+    {
+        position: absolute;
+        bottom: -6px;
+        right: 0px;
+        width: auto;
+        height: auto;
+    }
+    .infoBox
+    {
+        width: 90%;
+        height: 80%;
+        margin: 0 auto;
+        // background-color: black;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        font-size: 23px;
+        
+        color: #666666;
+        ul li
+        {
+            text-align: left;
+            margin: 30px 0px;
+        }
+        .Title
+        {
+            font-weight: bold;
+            color: $ThemeBlue;
+            font-size: 30px;
+        }
+    }
+}

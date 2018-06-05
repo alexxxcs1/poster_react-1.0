@@ -1,0 +1,17 @@
+@import 'mixin';
+.SelectActBox
+{
+    width: 100%;
+    height:auto; 
+    animation: fadeIn 1s forwards;
+}
+.welcomeText
+{
+    $welcomeTextHeight:150px;
+    width: 100%;
+    height: $welcomeTextHeight;
+    text-align: center;
+    line-height: $welcomeTextHeight;
+    
+    font-size: 35px;
+}

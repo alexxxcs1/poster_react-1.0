@@ -1,0 +1,56 @@
+@import 'mixin';
+
+.MaseBase
+{
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 998;
+    animation: fadeIn 0.5s;
+}
+.controlBox
+{
+    width: 750px;
+    height: auto;
+    // background-color: red;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    .qr
+    {
+        margin: 0 auto;
+        width: 55%;
+        margin-bottom: 30px;
+        img
+        {
+            width: 100%;
+        }
+    }
+    .btn
+    {
+        width: 100%;
+        width: 60%;
+        margin: 10px auto;
+        text-align: center;
+        font-size: 30px;
+        padding: 20px 0px;
+        color: #ffffff;
+        background-color: $ThemeBlue;
+        border-radius: 40px;
+        text-shadow:  0 0 0px #333333;
+        transition:  text-shadow 0.5s ;
+        &:hover
+        {
+            text-shadow:  0 0 10px #333333;
+        }
+    }
+}

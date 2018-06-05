@@ -1,0 +1,13 @@
+@import 'mixin';
+.UserBox
+{
+    width: 1000px;
+    height: auto;
+    min-height: 300px;
+    // background-color: #333333;
+    color: #ffffff;
+    font-size: 35px;
+    text-align: center;
+    margin: 0 auto;
+    animation: fadeIn 0.5s forwards;
+}

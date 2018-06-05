@@ -1,0 +1,12 @@
+@import 'mixin';
+.KVbox
+{
+    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    img
+    {
+        width: 100%;
+    }
+}

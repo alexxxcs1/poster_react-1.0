@@ -1,0 +1,20 @@
+@import 'mixin';
+
+.ActListBox
+{
+    width: 750px;
+    height: auto;
+    min-height: 100px;
+    margin: 0 auto;
+    // background-color: red;
+}
+.ListTop
+{
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    img
+    {
+        width: 100%;
+    }
+}

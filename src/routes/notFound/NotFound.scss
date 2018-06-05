@@ -1,0 +1,42 @@
+@import 'mixin';
+.NotFoundBox
+{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(rgb(212, 216, 192), $alpha: 0.5);
+    position: fixed;
+
+        
+    .NotFoundTips
+    {
+        width: 100%;
+        padding: 50px;
+        $NotFoundTipsHeight:300px;
+        // line-height: $NotFoundTipsHeight;
+        height: auto;
+        text-align: center;
+
+        background-color: rgba(rgb(212, 216, 192), $alpha: 1);
+
+        font-size: 40px;
+        color: #ffffff;
+
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+@keyframes animate_bg {
+    0% {
+        background-position: 0%, 50%;
+    }
+
+    50% {
+        background-position: 100%, 50%;
+    }
+
+    100% {
+        background-position: 0%, 50%;
+    }
+}

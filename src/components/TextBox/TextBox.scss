@@ -1,0 +1,44 @@
+@import 'mixin';
+.TextBox
+{
+    width: 100%;
+    height: auto;
+    margin: 30px auto;
+    min-height: 50px;
+    border:1px $ThemeBlue solid;
+    
+    .TextBoxTitle
+    {
+        $TextBoxTitleHeight:60px;
+        width: 100%;
+        height: $TextBoxTitleHeight;
+        line-height: $TextBoxTitleHeight;
+        background-color: green;
+        font-size: 25px;
+        color: #ffffff;
+        background-image: url(./imgs/titlebkg.png);   //backgroun image无法引用 路径会错误 
+        background-size: 100%;
+        span
+        {
+            margin-left: 30px;
+        }
+    }
+    .TextBoxContent
+    {
+        width: 100%;
+        height: auto;
+        min-height: 100px;
+
+        // background-color: #333333;
+        // color: #ffffff;
+        ul
+        {
+            padding: 30px;
+            li
+            {
+                font-size: 20px;
+                margin: 10px 0px;
+            }
+        }
+    }
+}
