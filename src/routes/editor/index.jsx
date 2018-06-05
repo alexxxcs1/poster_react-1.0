@@ -3,6 +3,8 @@ import './editor.scss'
 import PropTypes from 'prop-types';
 import { hashHistory, Router, Route } from 'react-router'
 
+import IsLoginBox from 'common/isLogin'
+
 import HeaderKV from '../../components/HeaderKV/HeaderKV';
 import UserBanner from '../../components/TopUserBanner/UserBanner'
 
@@ -273,6 +275,7 @@ export class Editor extends Component {
   render() {
     return (
       <div className='EditorBox'>
+          <IsLoginBox />
           <UserBanner />
           <div className='spcKVBox'><HeaderKV KVurl={this.state.KVurl}/></div>
           {this.switchSteep()}

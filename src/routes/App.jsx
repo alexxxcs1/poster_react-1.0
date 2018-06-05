@@ -59,7 +59,7 @@ class App extends React.Component {
         if (urlName[1]=='View'||urlName[1]=='List'||urlName[1]=='Vote'){
           
         }else{
-          hashHistory.push('/'); //判断是否登录
+          // hashHistory.push('/'); //判断是否登录
         }
       }
       console.log(res);

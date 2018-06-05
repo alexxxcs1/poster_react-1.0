@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import {selectAct} from '../../redux/actions/STATE';
 import {connect} from 'react-redux';
 
+import IsLoginBox from 'common/isLogin'
+
 import './User.scss'
 
 import HeaderKV from '../../components/HeaderKV/HeaderKV';
@@ -57,6 +59,7 @@ export class User extends Component {
     return (
 
         <div className='UserBox'>
+            <IsLoginBox />
             <UserBanner />
             <HeaderKV KVurl={this.state.KVurl}/>
 
