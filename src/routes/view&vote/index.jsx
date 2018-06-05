@@ -90,8 +90,8 @@ export class View extends Component {
       })
     }
 
-    var ActID = nextprop.params.actid;
-    var ArtID = nextprop.params.artid;
+    var ActID = this.props.params.actid;
+    var ArtID = this.props.params.artid;
     if(urlName[1]=='Vote')
     {
       var VoteID = nextprop.params.voteid;
