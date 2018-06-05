@@ -12,7 +12,7 @@ export class View extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      KVurl:'Index',
+      KVurl:'',
       showMask:false,
       PC:false,
       from:null,
