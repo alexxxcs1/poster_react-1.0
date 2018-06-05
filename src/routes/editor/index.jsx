@@ -53,8 +53,8 @@ export class Editor extends Component {
       this.setState({
         pid:ActID,
         id:EditArt,
-        add_user:User.uname?User.uname:hashHistory.push('/'),
-        user_phone:User.mobile?User.mobile:hashHistory.push('/'),
+        add_user:User.uname?User.uname:'',
+        user_phone:User.mobile?User.mobile:'',
       });
       api.articleInfo(EditArt).then((res) => {
         this.setState({
@@ -76,11 +76,14 @@ export class Editor extends Component {
       });
     }else
     {
-      this.setState({
+      if (User) {
+        this.setState({
         pid:ActID,
-        add_user:User.uname?User.uname:hashHistory.push('/'),
-        user_phone:User.mobile?User.mobile:hashHistory.push('/'),
-      });
+        add_user:User.uname?User.uname:'',
+        user_phone:User.mobile?User.mobile:'',
+        });
+      }
+      
     }
     var BaseURL = webState.baseURL;
     
@@ -147,28 +150,36 @@ export class Editor extends Component {
               break;
           case 2:
               if (this.state.title && this.state.author && this.state.company && this.state.goal && this.state.month && this.state.over && this.state.verdict) { //判断是否为空
-                  //提交数据
-                  api.SaveArt({title:this.state.title,author:this.state.author,company:this.state.company,goal:this.state.goal,month:this.state.month,over:this.state.over,verdict:this.state.verdict,add_user:this.state.add_user,user_phone:this.state.user_phone,pid:this.state.pid,id:this.state.id}).then((res) => {
-                    if (res.status==1) {
-                      //返回的id存入state
-                      this.setState({
-                        id:res.data.id,
+                  var length = (this.state.goal + this.state.month + this.state.over + this.state.verdict).replace(/<[^>]+>/g,"").length;
+                  if (length<300) {
+                    alert('内容不低于300个字，当前还差'+(300-length)+'字')
+                  }else if(length>1200){
+                    alert('内容不多于1200个字，当前已超出'+(1200-length)+'字')
+                  }else{
+                      //提交数据
+                      api.SaveArt({title:this.state.title,author:this.state.author,company:this.state.company,goal:this.state.goal,month:this.state.month,over:this.state.over,verdict:this.state.verdict,add_user:this.state.add_user,user_phone:this.state.user_phone,pid:this.state.pid,id:this.state.id}).then((res) => {
+                        if (res.status==1) {
+                          //返回的id存入state
+                          this.setState({
+                            id:res.data.id,
+                          })
+                        }else
+                        {
+                          // alert('未登录');
+                          // hashHistory.push('/'); //判断是否登录
+                        }
+                                          //跳转页面
+                        hashHistory.push('/View/'+this.props.params.actid+'/'+this.state.id);
+                        console.log(res)
+                      }, (err) => {
+                        console.log(err)
                       })
-                    }else
-                    {
-                      // alert('未登录');
-                      // hashHistory.push('/'); //判断是否登录
-                    }
-                                      //跳转页面
-                    hashHistory.push('/View/'+this.props.params.actid+'/'+this.state.id);
-                    console.log(res)
-                  }, (err) => {
-                    console.log(err)
-                  })
-                  this.setState({
-                    steep: this.state.steep + 1,
-                  })
-              } else {
+                      this.setState({
+                        steep: this.state.steep + 1,
+                      })
+                  }
+                  
+              }else {
                   alert('信息不能为空！');
               }
               
@@ -275,7 +286,7 @@ export class Editor extends Component {
   render() {
     return (
       <div className='EditorBox'>
-          <IsLoginBox />
+          {/* <IsLoginBox /> */}
           <UserBanner />
           <div className='spcKVBox'><HeaderKV KVurl={this.state.KVurl}/></div>
           {this.switchSteep()}
