@@ -11,6 +11,8 @@ import articleInfoPost from './articleInfo'
 import SubmitArticalePost from './SubmitArticale'
 import ArticleListPost from './getArticleList'
 import loginOutPost from './LogOut'
+import VotePost from './vote'
+import VoteNumPost from './voteNum'
 
 
 const host = 'http://wechat.crnonline.org/index.php/Api/Poster/'
@@ -111,7 +113,8 @@ const API = {
   ...articleInfoPost(ajaxinstance),
   ...SubmitArticalePost(ajaxinstance),
   ...ArticleListPost(ajaxinstance),
-
+  ...VotePost(ajaxinstance),
+  ...VoteNumPost(ajaxinstance)
 }
 
 export default API

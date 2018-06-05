@@ -13,7 +13,7 @@ import Home from './home'
 import User from './User'
 import Editor from './editor'
 import View from './view&vote'
-import List from './ActList'
+import List from './ArtList'
 import NotFound from './notFound'
 
 // import 'common/flexible'
@@ -93,7 +93,7 @@ class App extends React.Component {
           <Route path='/View/:actid/:artid' component={View} > 
             {/* <Route path="/login" component={Login}/> */}
           </Route>
-          <Route path='/Vote/:actid/:artid' component={View} > 
+          <Route path='/Vote/:actid/:artid/:voteid' component={View} > 
             {/* <Route path="/login" component={Login}/> */}
           </Route>
 

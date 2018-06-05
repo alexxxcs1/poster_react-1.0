@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './ActList.scss'
+import './ArtList.scss'
 
 import listTop from './img/listTop.png'
 import ListBox from './components/ListBox'
@@ -11,7 +11,7 @@ export class List extends Component {
   }
   render() {
     return (
-      <div className='ActListBox'>
+      <div className='ArtListBox'>
         <div className='ListTop'>
             <img src={listTop} alt=""/>
         </div>
