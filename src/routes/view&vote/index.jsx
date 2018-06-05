@@ -94,7 +94,7 @@ export class View extends Component {
     var ArtID = this.props.params.artid;
     if(urlName[1]=='Vote')
     {
-      var VoteID = nextprop.params.voteid;
+      var VoteID = this.props.params.voteid;
       api.Vote(VoteID,ActID,ArtID,'isVoted').then((res) => {
         if (res.status == 0) {
           this.setState({
