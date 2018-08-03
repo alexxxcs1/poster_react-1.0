@@ -32,11 +32,12 @@ export class MaskBase extends Component {
   }
   render() {
     return (
-      <div className='MaseBase' onClick={this.props.hidemask}>
+      <div className='MaskBase' onClick={this.props.hidemask}>
         <div className='controlBox'>
-            <div className='qr'><img src={"http://pan.baidu.com/share/qrcode?w=300&h=300&url=" + encodeURIComponent(location.href)} alt=""/></div>
+            <div className='tipsqr'>扫描下方二维码即可在手机上预览</div>
+            <div className='qr'><img src={"http://qr.liantu.com/api.php?text=" + encodeURIComponent(location.href)} alt=""/></div>
             <div className='btn' onClick={this.back2Edit}>返回去编辑</div>
-            <div className='btn' onClick={this.submit}>确认无误去提交</div>
+            <div className='btn' onClick={this.submit}>确认无误提交</div>
         </div>
       </div>
     )

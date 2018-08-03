@@ -96,7 +96,9 @@ class App extends React.Component {
           <Route path='/Vote/:actid/:artid/:voteid' component={View} > 
             {/* <Route path="/login" component={Login}/> */}
           </Route>
-
+          <Route path='/List/:actid/:voteid' component={List} > 
+            {/* <Route path="/login" component={Login}/> */}
+          </Route>
           <Route path='/List/:actid' component={List} > 
             {/* <Route path="/login" component={Login}/> */}
           </Route>

@@ -7,6 +7,18 @@
     // background-color: red;
     margin: 0 auto;
     padding-bottom: 60px;
+    .LoadingMask{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        background: rgba($color: #000000, $alpha: 0.2)
+    }
     .spcKVBox
     {
         width: 90%;

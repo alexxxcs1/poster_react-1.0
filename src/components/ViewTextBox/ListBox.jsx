@@ -26,6 +26,8 @@ export class ContentListBox extends Component {
   componentDidMount()
   {
     api.articleInfo(this.props.artid).then((res) => {
+        res.data.info.status == 'save'?this.props.showUpload(true):this.props.showUpload(false);
+      
         this.setState({
           title:res.data.info.title,
           author:res.data.info.author,

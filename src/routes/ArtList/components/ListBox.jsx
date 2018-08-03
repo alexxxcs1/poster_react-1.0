@@ -8,30 +8,50 @@ export class ListBox extends Component {
     super(props);
     this.state = {
         list:null,
+        actid:null,
+        voteid:null,
     };
     this.createArticle = this.createArticle.bind(this);
+    this.refreshProps = this.refreshProps.bind(this);
+    this.refreshList = this.refreshList.bind(this);
   }
+  componentWillReceiveProps(nextprops){
+    this.refreshProps(nextprops)
+  }
+
   createArticle()
   {
     var cont = this;
     var itemNodes = this.state.list.map(function(itemBase) {   
       return (
-        <ListItem info={itemBase} ActID={cont.props.ActID}/>
+        <ListItem info={itemBase} ActID={cont.props.ActID} voteid={cont.state.voteid}/>
       ); 
     });
     return itemNodes;
   }
   componentDidMount()
   {
-    api.ArticleList(this.props.ActID).then((res) => {  
-        this.setState(
-            {
-                list:res.data.list,
-            });
-        console.log(res);
-      }, (err) => {
-        console.log(err);
-      })
+    this.refreshProps(this.props)
+  }
+  refreshList(props){
+    api.ArticleList(props.ActID).then((res) => {  
+      this.setState(
+          {
+              list:res.data.list,
+          });
+      console.log(res);
+    }, (err) => {
+      console.log(err);
+    })
+  }
+  refreshProps(props){
+    console.log(props.voteid);
+    
+    this.setState({
+      actid:props.ActID,
+      voteid:props.voteid,
+    })
+    this.refreshList(props)
   }
   render() {
     return (

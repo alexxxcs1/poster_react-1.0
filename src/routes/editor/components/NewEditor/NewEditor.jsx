@@ -63,12 +63,14 @@ export class NewEditor extends Component {
         onRawChange: this.handleRawChange,
         pasteMode:'text',
         controls:['media'],
+        placeholder:'请在这里输入内容',
         media:{
           allowPasteImage: false, // 是否允许直接粘贴剪贴板图片（例如QQ截图等）到编辑器
           image: true, // 开启图片插入功能
-          uploadFn:this.uploadFile
-          // video: true, // 开启视频插入功能
-          // audio: true, // 开启音频插入功能
+          uploadFn:this.uploadFile,
+          video: false, // 开启视频插入功能
+          audio: false, // 开启音频插入功能
+          embed: false,
           // validateFn: null, // 指定本地校验函数，说明见下文
           // uploadFn: null, // 指定上传函数，说明见下文
           // removeConfirmFn: null, // 指定删除前的确认函数，说明见下文

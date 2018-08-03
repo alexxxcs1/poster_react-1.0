@@ -1,6 +1,6 @@
 @import 'mixin';
 
-.MaseBase
+.MaskBase
 {
     width: 100%;
     height: 100%;
@@ -25,6 +25,14 @@
     display: -webkit-flex;
     flex-wrap: nowrap;
     flex-direction: column;
+    .tipsqr{
+        width: 100%;
+        height: 80px;
+        // background-color: #ffffff;
+        color: #fff;
+        text-align: center;
+        font-size: 25px;
+    }
     .qr
     {
         margin: 0 auto;

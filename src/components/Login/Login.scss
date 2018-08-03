@@ -1,9 +1,9 @@
 @import 'mixin';
 .Login
 {
-    width: 70%;
-    height: 600px;
-    margin: 200px auto 0px auto;
+    width: 90%;
+    height: 900px;
+    margin: 100px auto 0px auto;
     // background-color: #333333;
     animation: fadeIn 1s forwards;
 
@@ -11,43 +11,55 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content:space-around;
+    justify-content:center;
 }
 .back
 {
-    $backHeight:50px;
-    width: 150px;
+    $backHeight:60px;
+    width: 250px;
     height: $backHeight;
     line-height: $backHeight;
     // background-color: green;
     text-align: center;
-    font-weight: bold;
-    font-size: 40px;
+    background: rgba($color: #000000, $alpha: 0.1);
+    border-radius: 50px;
+    margin: 30px 0px;
+    color: rgba($color: #000000, $alpha: 0.3);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    img{
+        margin-right: 10px;
+    }
 }
 .InputBakground
 {
     width: 100%;
-    height: auto;
-    flex-grow: 1;
     display: -webkit-flex; /* Safari */
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content:space-around;
-    
+    justify-content:flex-start;
+    box-shadow:0px 0px 20px rgba($color: #999, $alpha: .5);
     .InputBox
     {
-        width: 90%;
-        margin: 0 auto;
-        flex-grow: 1;
+        width: 100%;
+        height: 600px;
+        margin: 50px auto;
         background-color: #ffffff;
-        box-shadow:0px 10px 20px #000000;
+        
 
         display: -webkit-flex; /* Safari */
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
-        justify-content:space-around;
+        .loginbanner{
+            width: 80%;
+            display: block;
+            margin: 0 auto;
+        }
         div
         {
             display: -webkit-flex; /* Safari */
@@ -56,7 +68,8 @@
             flex-wrap: nowrap;
             justify-content:space-around;
             flex-grow: 1;
-            height: 200px;
+            height: 100px;
+            position: relative;
             .InputName
             {
                 display: block;
@@ -76,38 +89,42 @@
             }
             .inputItem
             {
-                flex-grow: 9;
+                flex-grow: 1;
                 border-bottom:  unset;
                 position: relative;
                 input
                 {
                     height: 80px;
-                    width: 80%;
+                    width: 50%;
                     font-size: 25px;
                     padding: 0px 20px 0px 20px;
-                    font-weight: bold;
                     position: absolute;
                     top: 50%;
-                    border-left: 3px #999999 solid;
-                    transform:translateY(-50%);
-                    text-align: center;
+                    left: 50%;
+                    border-bottom: 1px #999 solid;
+                    transform:translateY(-50%) translateX(-50%);
+                    text-align: left;
+                    text-indent: 30px;
                 }
             }
             .Login2Act
             {
                 flex-grow: unset;
-                width: 50%;
-                height: 100px;
-                background-color: #087fe0;
-                box-shadow:0px 3px 1px #000000;
-                border-radius: 20px;
+                width: 20%;
+                height: 70px;
+                background-color: #2868F0;
+                box-shadow:0px 0px 10px #999;
+                border-radius: 80px;
                 position: relative;
                 top: 50%;
                 transform: translateY(-50%);
                 text-align: center;
                 color: #ffffff;
-                line-height: 100px;
-                font-size: 40px;
+                font-size: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: unset;
             }
         }
     }

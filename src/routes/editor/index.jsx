@@ -6,7 +6,8 @@ import { hashHistory, Router, Route } from 'react-router'
 import IsLoginBox from 'common/isLogin'
 
 import HeaderKV from '../../components/HeaderKV/HeaderKV';
-import UserBanner from '../../components/TopUserBanner/UserBanner'
+import UserBanner from '../../components/TopUserBanner/UserBanner';
+import CombLoading from '../../components/CombLoading';
 
 import Steep0 from './steep/steep0';
 import Steep1 from './steep/steep1';
@@ -34,6 +35,8 @@ export class Editor extends Component {
       contents:null,
       pid:null,
       id:null,
+
+      loading:false,
     };
     this.changeSteep = this.changeSteep.bind(this);
     this.changeContent = this.changeContent.bind(this);
@@ -53,23 +56,34 @@ export class Editor extends Component {
       this.setState({
         pid:ActID,
         id:EditArt,
-        add_user:User.uname?User.uname:'',
-        user_phone:User.mobile?User.mobile:'',
+        add_user:User?User.uname:'',
+        user_phone:User?User.mobile:'',
+        loading:true,
       });
       api.articleInfo(EditArt).then((res) => {
-        this.setState({
-          EditArtData:res.data.info,
-          title:res.data.info.title,
-          author:res.data.info.author,
-          company:res.data.info.company,
-          add_user:res.data.info.add_user,
-          user_phone:res.data.info.user_phone,
-          goal:res.data.info.goal,
-          month:res.data.info.month,
-          over:res.data.info.over,
-          verdict:res.data.info.verdict,
-          contents:res.data.info.contents,
-        })
+        if (res.status==1) {
+          this.setState({
+            EditArtData:res.data.info,
+            title:res.data.info.title,
+            author:res.data.info.author,
+            company:res.data.info.company,
+            add_user:res.data.info.add_user,
+            user_phone:res.data.info.user_phone,
+            goal:res.data.info.goal,
+            month:res.data.info.month,
+            over:res.data.info.over,
+            verdict:res.data.info.verdict,
+            contents:res.data.info.contents,
+            loading:false,
+          })
+        } else {
+          alert(res.message);
+                          // hashHistory.push('/'); //判断是否登录
+          this.setState({
+            loading:false,
+           })
+        }
+        
         console.log(res);
       }, (err) => {
         console.log(err);
@@ -81,6 +95,7 @@ export class Editor extends Component {
         pid:ActID,
         add_user:User.uname?User.uname:'',
         user_phone:User.mobile?User.mobile:'',
+        loading:false,
         });
       }
       
@@ -113,7 +128,6 @@ export class Editor extends Component {
         break;
       case 'next':
         //判断数据是否为空
-        
         switch (this.state.steep) {
           case 0:
               this.setState({
@@ -144,7 +158,21 @@ export class Editor extends Component {
                 })
               }else
               {
-                alert('信息不能为空！');
+                var tmp=[];
+                
+                switch (false) {
+                  case Boolean(this.state.title):
+                    tmp.push('标题');
+                  case Boolean(this.state.author):
+                    tmp.push('作者');
+                  case Boolean(this.state.company):
+                    tmp.push('工作单位');
+                }
+                var str = '';
+                for (var z = 0; z < tmp.length; z++) {
+                  str += (z == tmp.length-1)?tmp[z]:tmp[z]+'、';
+                }
+                alert(str + '不能为空')
               }
               
               break;
@@ -154,8 +182,11 @@ export class Editor extends Component {
                   if (length<300) {
                     alert('内容不低于300个字，当前还差'+(300-length)+'字')
                   }else if(length>1200){
-                    alert('内容不多于1200个字，当前已超出'+(1200-length)+'字')
+                    alert('内容不多于1200个字，当前已超出'+Math.abs(1200-length)+'字')
                   }else{
+                      this.setState({
+                        loading:true,
+                      })
                       //提交数据
                       api.SaveArt({title:this.state.title,author:this.state.author,company:this.state.company,goal:this.state.goal,month:this.state.month,over:this.state.over,verdict:this.state.verdict,add_user:this.state.add_user,user_phone:this.state.user_phone,pid:this.state.pid,id:this.state.id}).then((res) => {
                         if (res.status==1) {
@@ -163,20 +194,24 @@ export class Editor extends Component {
                           this.setState({
                             id:res.data.id,
                           })
+                          this.setState({
+                            loading:false,
+                          })
+                          //跳转页面
+                          hashHistory.push('/View/'+this.props.params.actid+'/'+this.state.id);
                         }else
                         {
-                          // alert('未登录');
+                          alert(res.message);
                           // hashHistory.push('/'); //判断是否登录
+                          this.setState({
+                            loading:false,
+                          })
                         }
-                                          //跳转页面
-                        hashHistory.push('/View/'+this.props.params.actid+'/'+this.state.id);
                         console.log(res)
                       }, (err) => {
                         console.log(err)
                       })
-                      this.setState({
-                        steep: this.state.steep + 1,
-                      })
+                      
                   }
                   
               }else {
@@ -286,7 +321,12 @@ export class Editor extends Component {
   render() {
     return (
       <div className='EditorBox'>
+        {this.state.loading?<div className='LoadingMask'>
+          <CombLoading /></div>:''}
+        
+          
           {/* <IsLoginBox /> */}
+          
           <UserBanner />
           <div className='spcKVBox'><HeaderKV KVurl={this.state.KVurl}/></div>
           {this.switchSteep()}

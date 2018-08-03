@@ -13,7 +13,7 @@ module.exports = {
   /** 打包输出路径 */
   outDir: 'dist',
   /** 公共路径 */
-  publicPath: NODE_ENV === 'development' ? `http://${ip.address()}:8089/` : 'http://wechat.crnonline.org/product/dist/',
+  publicPath: NODE_ENV === 'development' ? `http://${ip.address()}:8089/` : 'http://wechat.crnonline.org/product/poster/',
   /** 是否sourcemap */
   sourcemaps: true,
   /** A hash map of keys that the compiler should treat as external to the project */

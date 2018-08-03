@@ -5,6 +5,7 @@ import MaskBase from './components/MaskBase'
 import HeaderKV from '../../components/HeaderKV/HeaderKV'
 import ContentListBox from '../../components/ViewTextBox/ListBox'
 import EndBanner from '../../components/ViewEndBanner/EndBanner'
+import CombLoading from '../../components/CombLoading';
 
 import { api,ua } from 'common/app'
 
@@ -14,17 +15,21 @@ export class View extends Component {
     this.state = {
       KVurl:'',
       showMask:false,
+      showUploadBtn:false,
       PC:false,
       from:null,
       vote_votenum:0,
       isvoted:true,
+      loading:false,
     };
     this.togleMask = this.togleMask.bind(this);
     this.switchBtn = this.switchBtn.bind(this);
     this.vote = this.vote.bind(this);
+    this.showUpload = this.showUpload.bind(this);
   }
   componentWillReceiveProps(nextprop)
   {
+
     var urlName = location.hash.split("/");
     this.setState({
       from:urlName[1],
@@ -79,6 +84,9 @@ export class View extends Component {
   }
   componentDidMount()
   { 
+    this.setState({
+      loading:true,
+    })
     var urlName = location.hash.split("/");
     this.setState({
       from:urlName[1],
@@ -113,7 +121,7 @@ export class View extends Component {
   
       api.VoteNum(ArtID).then((res) => {
         this.setState({
-          vote_votenum:res.num
+          vote_votenum:res.num,
         })
         console.log(res);
       }, (err) => {
@@ -123,9 +131,17 @@ export class View extends Component {
     
 
     api.ActInfo(ActID).then((res) => {
-      this.setState({
-        KVurl:'http://wechat.crnonline.org/'+res.data.info.head_img,
-      })
+      if (res.status == 1) {
+        this.setState({
+          KVurl:'http://wechat.crnonline.org/'+res.data.info.head_img,
+          loading:false,
+        })
+      } else {
+        alert(res.message)
+        this.setState({
+          loading:false,
+        })
+      }
       console.log(res);
     }, (err) => {
       console.log(err);
@@ -165,7 +181,7 @@ export class View extends Component {
   {
     switch (this.state.from) {
       case 'View':
-          return this.state.PC?<div className='Phone2Viewbtn' onClick={this.togleMask}>去手机上预览</div>:'';
+          return this.state.PC&&this.state.showUploadBtn?<div className='Phone2Viewbtn' onClick={this.togleMask}>去提交</div>:'';
           break;
       case 'Vote':
           return (
@@ -180,12 +196,19 @@ export class View extends Component {
           break;
     }
   }
+  showUpload(show){
+    this.setState({
+      showUploadBtn:show,
+    })
+  }
   render() {
     return (
-      <div className='ViewBox'>
+      <div className='ViewBox' style={this.state.PC?{width:'1024px'}:{}}>
+        {this.state.loading?<div className='LoadingMask'>
+          <CombLoading /></div>:''}
         {this.state.showMask?<MaskBase  ActID={this.props.params.actid} ArtID={this.props.params.artid} hidemask={this.togleMask}/>:''}
         <HeaderKV KVurl={this.state.KVurl}/>
-        <ContentListBox artid={this.props.params.artid}/>
+        <ContentListBox artid={this.props.params.artid} showUpload={this.showUpload}/>
         {this.switchBtn()}
         <EndBanner/>
       </div>

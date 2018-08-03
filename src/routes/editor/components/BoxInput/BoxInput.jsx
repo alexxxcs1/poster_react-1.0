@@ -33,7 +33,7 @@ export class BoxInput extends Component {
             </span>
         </div>
         <div className='TextInput'>
-            <input type="text" id={this.props.id} defaultValue={this.props.oldContent} onKeyUp={this.changeValue} onBlur={this.changeValue}/>
+            <input type="text" autoComplete="off" id={this.props.id} defaultValue={this.props.oldContent} onKeyUp={this.changeValue} onBlur={this.changeValue}/>
         </div>
         {/* <div className='TextBoxContent'>
             <ul>

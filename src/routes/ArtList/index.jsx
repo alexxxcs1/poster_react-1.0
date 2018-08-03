@@ -5,9 +5,27 @@ import listTop from './img/listTop.png'
 import ListBox from './components/ListBox'
 
 export class List extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      actid:null,
+      voteid:null,
+    };
+    this.refreshProps = this.refreshProps.bind(this);
+  }
+  componentWillReceiveProps(nextprops)
+  {
+    this.refreshProps(nextprops)
+  }
   componentDidMount()
   {
-    
+    this.refreshProps(this.props)
+  }
+  refreshProps(props){
+    this.setState({
+      actid:props.params.actid,
+      voteid:props.params.voteid?props.params.voteid:null,
+    })
   }
   render() {
     return (
@@ -15,7 +33,7 @@ export class List extends Component {
         <div className='ListTop'>
             <img src={listTop} alt=""/>
         </div>
-        <ListBox ActID={this.props.params.actid}/>
+        <ListBox ActID={this.state.actid} voteid={this.state.voteid}/>
       </div>
     )
   }

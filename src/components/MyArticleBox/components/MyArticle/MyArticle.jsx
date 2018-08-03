@@ -35,18 +35,16 @@ export class MyArticle extends Component {
   render() {
     return (
       <div className='MyArticle'>
-            <Link to={'/Editor/'+this.props.info.pid+'/'+this.props.info.id}>
+            {this.props.info.status == 'save'?<Link to={'/Editor/'+this.props.info.pid+'/'+this.props.info.id}>
               <div className='EditBtn' >
-              
                   编辑
-              
               </div>
-            </Link>
-            
+            </Link>:''}
+
             <div className='infoBox'>
                 <ul>
                     <li className='addTime'>投稿时间：{this.props.info.create_time}</li>
-                    <li className='Title'>{this.props.info.title}</li>
+                    {this.props.info.status != 'save'?<Link to={'/View/'+this.props.info.pid+'/'+this.props.info.id}><li className='Title'>{this.props.info.title}</li></Link>:<li className='Title'>{this.props.info.title}</li>}
                     <li className='addPerson'>{this.props.info.author}|{this.props.info.company}</li>
                 </ul>
             </div>
