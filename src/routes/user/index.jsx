@@ -72,6 +72,8 @@ export class User extends Component {
 
             <MyArticleBox ActID={this.state.ActID}/>
 
+            <div className='displaybox'></div>
+
         </div>
 
     )
