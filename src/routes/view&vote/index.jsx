@@ -203,7 +203,7 @@ export class View extends Component {
   }
   render() {
     return (
-      <div className='ViewBox' style={this.state.PC?{width:'1024px'}:{}}>
+      <div className='ViewBox' style={this.state.PC?{width:'1024px',maxWidth:'100%'}:{}}>
         {this.state.loading?<div className='LoadingMask'>
           <CombLoading /></div>:''}
         {this.state.showMask?<MaskBase  ActID={this.props.params.actid} ArtID={this.props.params.artid} hidemask={this.togleMask}/>:''}
