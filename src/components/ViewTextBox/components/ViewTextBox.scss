@@ -1,37 +1,28 @@
 @import 'main';
-
-.ViewTextBox
-{
+.ViewTextBox {
     width: 100%;
     height: auto;
-    .BoxTitle
-    {
-        $BoxTitleHeight:70px;
+    .BoxTitle {
+        $BoxTitleHeight: 70px;
         width: 100%;
         height: $BoxTitleHeight;
         line-height: $BoxTitleHeight;
         font-size: 28px;
-        font-weight: bold;
-        // background-color: red;
-        span
-        {
+        font-weight: bold; // background-color: red;
+        span {
             margin-left: 30px
         }
     }
-    .ViewBoxContent
-    {
+    .ViewBoxContent {
         width: 100%;
         height: auto;
-        div
-        {
+        div {
             padding: 0px 30px;
             font-size: 25px;
-            img
-            {
+            img {
                 width: 100% !important;
                 max-width: 100%;
             }
         }
-        
     }
 }
