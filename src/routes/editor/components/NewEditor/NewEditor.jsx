@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import './NewEditor.scss'
 
+import 'braft-polyfill'
 import BraftEditor from 'braft-editor'
 import 'braft-editor/dist/braft.css'
 
