@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './styles/main.scss'
 import 'core-js/es6/promise' //引入core-js(babel-polyfill) 兼容IE浏览器
+import 'babel-polyfill';
 import {Provider} from 'react-redux';
 import storeConfig from './redux/store'
 const { persistor, store } = storeConfig()
