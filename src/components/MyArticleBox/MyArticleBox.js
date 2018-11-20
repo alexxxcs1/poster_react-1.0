@@ -62,7 +62,8 @@ export class MyArticleBox extends Component {
         create_time:'2018-04-20 16:23:42',
         title:'智障吗！',
         author:'智障',
-        company:'中华护理学会全国肿瘤护理新进展研讨会'
+        company:'中华护理学会全国肿瘤护理新进展研讨会中华护理学会全国肿瘤护理新进展研讨会',
+        status:'save',
       };
     return (
       <div className='MyArticleBox'>
