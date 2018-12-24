@@ -14,6 +14,7 @@ import User from './User'
 import Editor from './editor'
 import View from './view&vote'
 import List from './ArtList'
+import ListRegion from './ArtListByRegion'
 import NotFound from './notFound'
 
 // import 'common/flexible'
@@ -100,6 +101,12 @@ class App extends React.Component {
             {/* <Route path="/login" component={Login}/> */}
           </Route>
           <Route path='/List/:actid' component={List} > 
+            {/* <Route path="/login" component={Login}/> */}
+          </Route>
+          <Route path='/ListbyRegion/:actid/:voteid/:region' component={ListRegion} > 
+            {/* <Route path="/login" component={Login}/> */}
+          </Route>
+          <Route path='/ListbyRegion/:actid/:region' component={ListRegion} > 
             {/* <Route path="/login" component={Login}/> */}
           </Route>
 

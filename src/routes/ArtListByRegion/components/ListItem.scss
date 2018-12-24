@@ -1,0 +1,27 @@
+@import 'mixin';
+
+.ListItem
+{
+    width: 90%;
+    height: auto;
+    // background-color: red;
+    margin: 10px auto;
+    color: #595757;
+    .ItemTitle
+    {
+        width: 100%;
+        height: auto;
+        font-size: 30px;
+        margin: 10px 0px;
+        // font-weight: bold;
+        color: #595757;
+    }
+    .ItemAuthor
+    {
+        width: 100%;
+        height: auto;
+        font-size: 25px;
+        margin: 10px 0px;
+        color: #595757;
+    }
+}

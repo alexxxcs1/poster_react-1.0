@@ -24,10 +24,22 @@ export class List extends Component {
         
     }
     refreshProps(props) {
+        let region = 1;
+        switch (props.params.region) {
+            case 'zh-cn':
+                region = 1;
+                break;
+            case 'zh-tw':
+                region = 2;
+                break;
+            default:
+                region = 1;
+                break;
+        }
         this.setState({
             actid: props.params.actid,
             voteid: props.params.voteid ? props.params.voteid : null,
-            region:1
+            region:region,
         });
     }
     render() {

@@ -1,10 +1,11 @@
 import qs from 'qs';
 const ArticleListPost = (ajaxinstance) => {
     const customer = {}
-    customer.ArticleList = (ActId) => {
+    customer.ArticleList = (ActId,is_taiwan) => {
       return ajaxinstance.post('getAarticleList',qs.stringify({
         pid:ActId,
-        all:1
+        all:1,
+        is_taiwan
       }));
     }
     customer.ArticleListMin = (ActId,page,pagesize,all) => {
