@@ -29,6 +29,23 @@
         z-index: 998;
         color:#ffffff;
     }
+    .DownloadButton
+    {
+        $EditBtnHeight:50px;
+        width: 180px;
+        height: $EditBtnHeight;
+        background-color: $ThemeBlue;
+        position: absolute;
+        right: 40px;
+        top: 20px;
+        border-radius: 10px;
+        font-size: 26px;
+        font-weight: bold;
+        text-align: center;
+        line-height: $EditBtnHeight;
+        z-index: 998;
+        color:#ffffff;
+    }
     &:hover
     {
         box-shadow: 0px 0px 10px #333333;

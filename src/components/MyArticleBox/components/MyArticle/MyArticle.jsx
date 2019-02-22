@@ -39,7 +39,11 @@ export class MyArticle extends Component {
               <div className='EditBtn' >
                   编辑
               </div>
-            </Link>:''}
+            </Link>:(this.props.info.status == 'success'?<a target="_blank" href={'http://wechat.crnonline.org/index.php/api/poster/certificate?id='+this.props.info.id}>
+              <div className='DownloadButton' >
+                  下载证书
+              </div>
+            </a>:'')}
 
             <div className='infoBox'>
                 <ul>
