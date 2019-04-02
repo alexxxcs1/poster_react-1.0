@@ -28,7 +28,7 @@ export class Wang extends Component {
         editorContent: html
       })
     }
-    editor.customConfig.uploadImgServer = 'http://wechat.crnonline.org/baiduEdit/php/controller.php?action=uploadimage'
+    editor.customConfig.uploadImgServer = 'http://poster.crnonline.cn/baiduEdit/php/controller.php?action=uploadimage'
     editor.customConfig.uploadImgMaxSize = 2 * 1024 * 1024
     editor.customConfig.menus = [
         'image',
@@ -97,7 +97,7 @@ export class Wang extends Component {
     
             // 举例：假如上传图片成功后，服务器端返回的是 {url:'....'} 这种格式，即可这样插入图片：
             var url = result.url
-            insertImg('http://wechat.crnonline.org/'+url)
+            insertImg('http://poster.crnonline.cn/'+url)
     
             // result 必须是一个 JSON 格式字符串！！！否则报错
         }

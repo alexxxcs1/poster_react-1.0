@@ -7,7 +7,7 @@ const initState = {
     
     user_data:null,
     ActID:null,
-    baseURL:'http://wechat.crnonline.org/'
+    baseURL:'http://poster.crnonline.cn/'
 };
 
 function localUpdata(state)

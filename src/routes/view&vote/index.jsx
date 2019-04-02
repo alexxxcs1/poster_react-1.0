@@ -75,7 +75,7 @@ export class View extends Component {
 
     api.ActInfo(ActID).then((res) => {
       this.setState({
-        KVurl:'http://wechat.crnonline.org/'+res.data.info.head_img,
+        KVurl:'http://poster.crnonline.cn/'+res.data.info.head_img,
       })
       console.log(res);
     }, (err) => {
@@ -133,7 +133,7 @@ export class View extends Component {
     api.ActInfo(ActID).then((res) => {
       if (res.status == 1) {
         this.setState({
-          KVurl:'http://wechat.crnonline.org/'+res.data.info.head_img,
+          KVurl:'http://poster.crnonline.cn/'+res.data.info.head_img,
           loading:false,
         })
       } else {

@@ -33,12 +33,12 @@ export class NewEditor extends Component {
         if (res.state == 'SUCCESS') {
           param.progress(100)
           param.success({
-            url:'http://wechat.crnonline.org/' + res.url,
+            url:'http://poster.crnonline.cn/' + res.url,
             meta: {
               // id: res.title,
               // title: res.title,
               // alt: res.title,
-              // poster: 'http://wechat.crnonline.org/' + res.url, // 指定视频播放器的封面
+              // poster: 'http://poster.crnonline.cn/' + res.url, // 指定视频播放器的封面
             }
           })
 

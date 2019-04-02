@@ -37,7 +37,7 @@ export class List extends Component {
                     <img src={listTop} alt="" />
                 </div>
                 <ListBox ActID={this.state.actid} voteid={this.state.voteid} region={this.state.region} />
-                <a href={'http://poster.crnonline.org/index.php/Www/Search/index/?pid='+this.state.actid}>
+                <a href={'http://poster.crnonline.cn/index.php/Www/Search/index/?pid='+this.state.actid}>
                     <div className="SearchButton">
                         <img src={Search} alt="" /> <span>搜索</span>
                     </div>

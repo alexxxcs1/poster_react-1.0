@@ -41,7 +41,7 @@ export class SelectAct extends Component {
     var itemNodes = this.state.ActList.map(function(itemBase) {
       
       return (
-        <ActBox imgUrl={'http://wechat.crnonline.org/'+itemBase.cover_pic} id={itemBase.id} changeState={cont.props.changeState} key={'SelectActBox'+Math.random()*1024}/>
+        <ActBox imgUrl={'http://poster.crnonline.cn/'+itemBase.cover_pic} id={itemBase.id} changeState={cont.props.changeState} key={'SelectActBox'+Math.random()*1024}/>
       ); 
     });
     return itemNodes;
