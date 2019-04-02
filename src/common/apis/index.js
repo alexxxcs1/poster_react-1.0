@@ -15,8 +15,8 @@ import VotePost from './vote'
 import VoteNumPost from './voteNum'
 
 
-const host = 'http://wechat.crnonline.org/index.php/Api/Poster/'
-const posterHost = 'http://poster.crnonline.org/index.php/Api/Poster/'
+const host = 'http://wechat.crnonline.cn/index.php/Api/Poster/'
+const posterHost = 'http://poster.crnonline.cn/index.php/Api/Poster/'
 
 // 实例化 ajax请求对象
 const ajaxinstance = axios.create({
