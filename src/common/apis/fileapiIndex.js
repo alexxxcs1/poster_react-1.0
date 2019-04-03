@@ -3,7 +3,7 @@ import { hashHistory } from 'react-router'
 
 import ImageLoadPost from './imgLoad'
 
-const host = 'http://poster.crnonline.org/baiduEdit/php/'
+const host = 'http://poster.crnonline.cn/baiduEdit/php/'
 // const wechatHost = 'http://testwechat.fanqiebianli.com/'
 
 // 实例化 ajax请求对象
