@@ -74,7 +74,7 @@
             {
                 display: block;
                 width: 10%;
-                flex-grow: 1;
+                // flex-grow: 1;
                 border-bottom:  unset;
                 font-weight: bold;
                 div
@@ -90,6 +90,7 @@
             .inputItem
             {
                 flex-grow: 1;
+                flex-shrink: 0;
                 border-bottom:  unset;
                 position: relative;
                 input

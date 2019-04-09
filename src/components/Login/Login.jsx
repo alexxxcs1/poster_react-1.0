@@ -120,7 +120,7 @@ export class Login extends Component {
                             </div>
                           </div>  */}
                           <div className='inputItem'>
-                              <input type='password' id='password' value={this.state.password} placeholder='请输入您的密码' onChange={this.valueChange}/>
+                              <input type='password' id='password' value={this.state.password} placeholder='请输入您的手机号码后6位' onChange={this.valueChange}/>
                           </div>
                       </div>
 
