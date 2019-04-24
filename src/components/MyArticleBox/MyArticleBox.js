@@ -28,11 +28,16 @@ export class MyArticleBox extends Component {
       api.myAarticle(this.props.ActID).then((res) => {
         
         if (res.data.list==null) {
-          this.setState({
-            canAdd:true,
-          })
-        }else
-        {
+          if (res.start !== 1) {
+            this.setState({
+              canAdd:false,
+            })
+          }else{
+            this.setState({
+              canAdd:true,
+            })
+          }
+        }else{
           this.setState({
             canAdd:false,
           })
@@ -70,7 +75,7 @@ export class MyArticleBox extends Component {
             {this.state.canAdd?<AddNewBtn text='新增稿件' to={'/Editor/'+this.props.ActID+'/add'}/>:null}
             {/* <AddNewBtn text='新增稿件'/> */}
             {/* <MyArticle info={info}/> */}
-            {this.state.myArt?this.createArticle():null}
+            {this.state.myArt?this.createArticle(): <span style={{display:'block',margin:'20px 0',color:'#0980E0'}}>暂无已投稿件</span>}
       </div>
     )
   }
